@@ -1,0 +1,105 @@
+/* src/styles/sidebar.css */
+
+/* Sidebar Container */
+.sidebar-container {
+    width: 250px;
+    height: 100vh;
+    background-color: #ffffff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    transition: all 0.3s ease;
+    z-index: 99;
+  }
+  
+  .sidebar-container.dark-mode {
+    background-color: #1c1c1c;
+  }
+  
+  .sidebar-header {
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .sidebar-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .sidebar-nav {
+    margin-top: 20px;
+  }
+  
+  .sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-nav li {
+    margin: 20px 0;
+  }
+  
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .sidebar-link:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .sidebar-link:active {
+    background-color: #0056b3;
+  }
+  
+  .sidebar-icon {
+    margin-right: 10px;
+    font-size: 1.4rem;
+  }
+  
+  /* Dark mode styling for sidebar links */
+  .sidebar-container.dark-mode .sidebar-link {
+    color: #ccc;
+  }
+  
+  .sidebar-container.dark-mode .sidebar-link:hover {
+    background-color: #444;
+  }
+  
+  .sidebar-container.dark-mode .sidebar-link:active {
+    background-color: #333;
+  }
+  
+  /* Mobile responsive design */
+  @media (max-width: 768px) {
+    .sidebar-container {
+      width: 200px;
+      padding-top: 10px;
+    }
+  
+    .sidebar-logo {
+      font-size: 1.5rem;
+    }
+  
+    .sidebar-link {
+      font-size: 1rem;
+    }
+  
+    .sidebar-nav ul {
+      padding-left: 10px;
+    }
+  }
+  

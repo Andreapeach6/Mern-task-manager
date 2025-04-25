@@ -1,29 +1,13 @@
 import React, { useState } from 'react';
 import { Card, CardContent, Button, TextField, Typography } from '@mui/material';
-import { Task } from '../types';
-
-// Define an array of caramel colors for unique task card backgrounds
-const colorPalette = [
-  '#f3e1b5', // Soft caramel
-  '#f8d7a1', // Light golden caramel
-  '#e09f4b', // Rich caramel orange
-  '#d87d2d', // Darker caramel orange
-  '#c3a68a', // Muted caramel beige
-];
-
-interface TaskCardProps {
-  task: Task;
-  onUpdateTask: (updatedTask: Task) => void;
-  onDeleteTask: (taskId: string) => void;
-}
+import { Task } from '../../types/Task';
+import { TaskCardProps } from '../../types/Task';
 
 const TaskCard: React.FC<TaskCardProps> = ({ task, onUpdateTask, onDeleteTask }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [updatedTask, setUpdatedTask] = useState<Task>(task);
 
-  // Randomly select a color from the palette for each card
-  const randomColor = colorPalette[Math.floor(Math.random() * colorPalette.length)];
-
+  // Handle input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setUpdatedTask((prev) => ({
@@ -32,22 +16,25 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, onUpdateTask, onDeleteTask })
     }));
   };
 
+  // Save the updated task
   const handleSave = () => {
     onUpdateTask(updatedTask);
     setIsEditing(false);
   };
 
   return (
-    <Card className="task-card" sx={{
-      backgroundColor: randomColor,
-      borderRadius: '12px',
-      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-      transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-      ':hover': {
-        transform: 'translateY(-8px)',
-        boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
-      },
-    }}>
+    <Card
+      className="task-card"
+      sx={{
+        borderRadius: '10px',
+        boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+        transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+        ':hover': {
+          transform: 'translateY(-5px)',
+          boxShadow: '0 5px 15px rgba(0, 0, 0, 0.2)',
+        },
+      }}
+    >
       {isEditing ? (
         <CardContent>
           <TextField
@@ -57,7 +44,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, onUpdateTask, onDeleteTask })
             onChange={handleChange}
             fullWidth
             margin="normal"
-            sx={{ marginBottom: '15px' }}
+            sx={{ marginBottom: '10px' }}
           />
           <TextField
             label="Description"
@@ -66,7 +53,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, onUpdateTask, onDeleteTask })
             onChange={handleChange}
             fullWidth
             margin="normal"
-            sx={{ marginBottom: '15px' }}
+            sx={{ marginBottom: '10px' }}
           />
           <TextField
             label="Due Date"
@@ -75,7 +62,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, onUpdateTask, onDeleteTask })
             onChange={handleChange}
             fullWidth
             margin="normal"
-            sx={{ marginBottom: '15px' }}
+            sx={{ marginBottom: '10px' }}
           />
           <TextField
             label="Priority"
@@ -86,15 +73,14 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, onUpdateTask, onDeleteTask })
             margin="normal"
             sx={{ marginBottom: '15px' }}
           />
-          <Button 
-            variant="contained" 
-            color="primary" 
+          <Button
+            variant="contained"
+            color="primary"
             onClick={handleSave}
             sx={{
-              backgroundColor: '#e09f4b',
-              ':hover': {
-                backgroundColor: '#d87d2d',
-              },
+              backgroundColor: '#0069d9',
+              ':hover': { backgroundColor: '#0056b3' },
+              width: '100%',
             }}
           >
             Save
@@ -102,29 +88,29 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, onUpdateTask, onDeleteTask })
         </CardContent>
       ) : (
         <CardContent>
-          <Typography variant="h5" sx={{ fontWeight: '600', color: '#3e2a22' }}>
+          <Typography variant="h6" sx={{ fontWeight: '600', marginBottom: '10px' }}>
             {task.title}
           </Typography>
-          <Typography variant="body2" sx={{ color: '#5c4a3a', marginBottom: '10px' }}>
+          <Typography variant="body2" sx={{ marginBottom: '10px' }}>
             {task.description}
           </Typography>
-          <Typography variant="body1" sx={{ color: '#3e2a22' }}>
+          <Typography variant="body1" sx={{ fontWeight: '500', marginBottom: '10px' }}>
             Due Date: {task.dueDate}
           </Typography>
-          <Typography variant="body2" sx={{ color: '#3e2a22', marginBottom: '10px' }}>
+          <Typography variant="body2" sx={{ fontWeight: '500', marginBottom: '15px' }}>
             Priority: {task.priority}
           </Typography>
           <Button
             variant="outlined"
             onClick={() => setIsEditing(true)}
             sx={{
-              marginRight: '10px',
-              borderColor: '#e09f4b',
-              color: '#e09f4b',
+              borderColor: '#0069d9',
+              color: '#0069d9',
               ':hover': {
-                borderColor: '#d87d2d',
-                color: '#d87d2d',
+                borderColor: '#0056b3',
+                color: '#0056b3',
               },
+              marginRight: '10px',
             }}
           >
             Edit
@@ -134,11 +120,11 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, onUpdateTask, onDeleteTask })
             color="error"
             onClick={() => onDeleteTask(task.id)}
             sx={{
-              borderColor: '#d87d2d',
-              color: '#d87d2d',
+              borderColor: '#f44336',
+              color: '#f44336',
               ':hover': {
-                borderColor: '#c63d1d',
-                color: '#c63d1d',
+                borderColor: '#d32f2f',
+                color: '#d32f2f',
               },
             }}
           >

@@ -1,8 +1,9 @@
+// src/components/ThemeToggle.tsx
 import React, { useState, useEffect } from 'react';
-import './ThemeToggle.css'  // Ensure app.css is imported for theme styles
+import '../../styles/ThemeToggle.css';
 
 // Function to get the current theme from localStorage or default to light theme
-const getInitialTheme = () => {
+const getInitialTheme = (): string => {
   const savedTheme = localStorage.getItem('theme');
   return savedTheme ? savedTheme : 'light'; // Default to 'light' theme
 };
@@ -20,12 +21,16 @@ const ThemeToggle: React.FC = () => {
   }, [theme]);
 
   // Toggle between 'light' and 'dark' themes
-  const toggleTheme = () => {
+  const toggleTheme = (): void => {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
   return (
-    <button onClick={toggleTheme} className="theme-toggle-btn">
+    <button
+      onClick={toggleTheme}
+      className="theme-toggle-btn"
+      aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+    >
       {theme === 'light' ? '🌙 Dark Mode' : '🌞 Light Mode'}
     </button>
   );

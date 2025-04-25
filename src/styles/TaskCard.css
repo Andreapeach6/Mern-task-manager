@@ -1,0 +1,129 @@
+/* taskcard.css */
+
+/* Card container styles */
+.task-card {
+    border-radius: 16px; /* Rounded corners for a more modern feel */
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1); /* Soft, expansive shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.2s ease;
+    background-color: #ffffff; /* Clean white background for clarity */
+    overflow: hidden; /* Prevents anything from spilling outside rounded corners */
+  }
+  
+  /* Hover effect for cards */
+  .task-card:hover {
+    transform: translateY(-12px); /* Smooth lift on hover */
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+    opacity: 0.95;
+  }
+  
+  /* Card content padding and layout */
+  .task-card .MuiCardContent-root {
+    padding: 24px;
+  }
+  
+  /* Title styling */
+  .task-card .task-title {
+    font-size: 1.4rem; /* Slightly larger font for modern feel */
+    font-weight: 700; /* Bold for emphasis */
+    color: #333333; /* Neutral dark text for high readability */
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+  }
+  
+  /* Description styling */
+  .task-card .task-description {
+    color: #666666; /* Lighter gray for secondary text */
+    margin-bottom: 12px;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+  }
+  
+  /* Due date and priority styling */
+  .task-card .task-due-date,
+  .task-card .task-priority {
+    color: #555555; /* Slightly darker gray for these elements */
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  /* Edit button styling */
+  .task-card .edit-button {
+    background-color: #5c6bc0; /* Elegant blue background */
+    color: white;
+    border-radius: 24px; /* Soft rounded edges */
+    padding: 8px 16px;
+    font-size: 0.875rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 16px;
+  }
+  
+  .task-card .edit-button:hover {
+    background-color: #3949ab; /* Darker shade of blue on hover */
+    transform: translateY(-4px); /* Slight lifting effect on hover */
+  }
+  
+  /* Delete button styling */
+  .task-card .delete-button {
+    background-color: #f44336; /* Premium red for urgency */
+    color: white;
+    border-radius: 24px;
+    padding: 8px 16px;
+    font-size: 0.875rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 16px;
+  }
+  
+  .task-card .delete-button:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+    transform: translateY(-4px); /* Slight lifting effect on hover */
+  }
+  
+  /* Save button styling */
+  .task-card .save-button {
+    background-color: #4caf50; /* Premium green for confirmation */
+    color: white;
+    border-radius: 24px;
+    padding: 8px 16px;
+    font-size: 0.875rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 16px;
+  }
+  
+  .task-card .save-button:hover {
+    background-color: #388e3c; /* Darker green on hover */
+    transform: translateY(-4px); /* Slight lifting effect on hover */
+  }
+  
+  /* Input field styling */
+  .task-card .MuiTextField-root {
+    margin-bottom: 16px;
+    background-color: #f5f5f5; /* Soft light background for inputs */
+    border-radius: 8px;
+  }
+  
+  /* Placeholder text styling */
+  .task-card .MuiInputBase-input::placeholder {
+    color: #888888; /* Subtle placeholder text */
+  }
+  
+  /* General button styling */
+  .task-card .MuiButton-root {
+    margin-top: 10px;
+    padding: 10px 16px;
+  }
+  
+  /* Task card animation */
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  .task-card {
+    animation: fadeIn 0.5s ease-out;
+  }
+  

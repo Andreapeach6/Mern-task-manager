@@ -5,7 +5,7 @@ import TaskManager from './pages/TaskManager';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { ToastContainer } from 'react-toastify';
-import ThemeToggle from './components/ThemeToggle';
+import ThemeToggle from "./components/common/ThemeToggle";
 import 'react-toastify/dist/ReactToastify.css';
 
 const App: React.FC = () => {
